@@ -14,15 +14,17 @@
 }
 .brand-link {
   display: flex;
-  width: 176px;
+  width: 108px;
   height: 74px;
   align-items: center;
   flex: 0 0 auto;
-  overflow: hidden;
+  overflow: visible;
 }
 .brand-link img {
-  width: 154px;
+  width: 96px;
+  max-height: 68px;
   height: auto;
+  object-fit: contain;
 }
 .desktop-nav {
   display: flex;
@@ -578,11 +580,12 @@
     gap: 0.65rem;
   }
   .brand-link {
-    width: 132px;
+    width: 88px;
     height: 68px;
   }
   .brand-link img {
-    width: 126px;
+    width: 80px;
+    max-height: 60px;
   }
   .header-actions {
     display: none;

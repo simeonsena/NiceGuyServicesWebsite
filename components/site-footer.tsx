@@ -16,7 +16,7 @@ export function SiteFooter() {
             />
           </Link>
           <p>
-            Independent residential appliance repair within 50 miles of
+            Independent residential appliance repair within 25 miles of
             Cincinnati city center.
           </p>
         </div>

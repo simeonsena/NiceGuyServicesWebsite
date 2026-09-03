@@ -6,8 +6,10 @@ import { businessConfig } from "../../src/config/business.ts";
 test("centralizes the authoritative business identity and territory", () => {
   assert.equal(businessConfig.name, "Nice Guy Appliance Services");
   assert.equal(businessConfig.domain, "niceguyservices.com");
+  assert.equal(businessConfig.phone, "513-804-7766");
+  assert.equal(businessConfig.email, "ssena@niceuyservices.com");
   assert.equal(businessConfig.serviceArea.centerName, "Cincinnati city center");
-  assert.equal(businessConfig.serviceArea.radiusMiles, 50);
+  assert.equal(businessConfig.serviceArea.radiusMiles, 25);
 });
 
 test("keeps pricing rules exact and consistent", () => {

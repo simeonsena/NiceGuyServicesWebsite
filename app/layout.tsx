@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s | Nice Guy Appliance Services",
   },
   description:
-    "Independent residential appliance repair for washers, dryers, dishwashers, ovens, ranges, and microwaves within 50 miles of Cincinnati.",
+    "Independent residential appliance repair for washers, dryers, dishwashers, ovens, ranges, and microwaves within 25 miles of Cincinnati.",
   applicationName: businessConfig.name,
   alternates: { canonical: "/" },
   openGraph: {
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     url: businessConfig.canonicalUrl,
     title: "Nice Guy Appliance Services",
     description:
-      "Honest residential appliance repair within 50 miles of Cincinnati.",
+      "Honest residential appliance repair within 25 miles of Cincinnati.",
     images: [
       {
         url: `${businessConfig.canonicalUrl}/og.png`,
-        width: 1731,
-        height: 909,
-        alt: "Nice Guy Appliance Services - honest appliance repair within 50 miles of Cincinnati",
+        width: 1734,
+        height: 907,
+        alt: "Nice Guy Appliance Services - honest appliance repair within 25 miles of Cincinnati",
       },
     ],
   },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nice Guy Appliance Services",
     description:
-      "Honest residential appliance repair within 50 miles of Cincinnati.",
+      "Honest residential appliance repair within 25 miles of Cincinnati.",
     images: [`${businessConfig.canonicalUrl}/og.png`],
   },
   icons: {
@@ -62,13 +62,13 @@ const localBusinessSchema = {
   image: `${businessConfig.canonicalUrl}${businessConfig.brand.logo}`,
   areaServed: {
     "@type": "GeoCircle",
-    name: "50 miles from Cincinnati city center",
+    name: "25 miles from Cincinnati city center",
     geoMidpoint: {
       "@type": "GeoCoordinates",
       latitude: 39.1031,
       longitude: -84.512,
     },
-    geoRadius: "80467.2",
+    geoRadius: "40233.6",
   },
   serviceType: [
     "Washer repair",

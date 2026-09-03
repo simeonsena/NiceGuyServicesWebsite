@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Nice Guy Appliance Services",
     short_name: "Nice Guy Services",
-    description: "Residential appliance repair within 50 miles of Cincinnati.",
+    description: "Residential appliance repair within 25 miles of Cincinnati.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

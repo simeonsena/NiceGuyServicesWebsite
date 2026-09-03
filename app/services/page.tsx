@@ -6,7 +6,7 @@ import { serviceRoutes } from "@/src/config/business";
 export const metadata: Metadata = {
   title: "Residential Appliance Repair Services",
   description:
-    "Washer, dryer, dishwasher, oven, range, and microwave repair services for residential customers within 50 miles of Cincinnati.",
+    "Washer, dryer, dishwasher, oven, range, and microwave repair services for residential customers within 25 miles of Cincinnati.",
   alternates: { canonical: "/services" },
 };
 

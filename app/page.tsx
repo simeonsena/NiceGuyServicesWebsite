@@ -8,7 +8,7 @@ import { businessConfig, faqItems, serviceRoutes } from "@/src/config/business";
 export const metadata: Metadata = {
   title: "Honest Appliance Repair in Cincinnati",
   description:
-    "Residential washer, dryer, dishwasher, oven, range, and microwave repair within 50 miles of Cincinnati, with clear pricing and parts at cost whenever practical.",
+    "Residential washer, dryer, dishwasher, oven, range, and microwave repair within 25 miles of Cincinnati, with clear pricing and parts at cost whenever practical.",
   alternates: { canonical: "/" },
 };
 
@@ -51,7 +51,7 @@ export default function Home() {
           <h1>Honest Appliance Repair Without Inflated Parts Markup</h1>
           <p className="home-hero__lead">
             In-home repair for washers, dryers, dishwashers, ovens, ranges, and
-            microwaves within 50 miles of Cincinnati city center.
+            microwaves within 25 miles of Cincinnati city center.
           </p>
           <ActionLinks context="home_hero" />
           <ul className="hero-facts" aria-label="Service highlights">
@@ -74,7 +74,7 @@ export default function Home() {
           <div>
             <strong>Service area</strong>
             <span>
-              Residential addresses within a 50-mile radius of Cincinnati
+              Residential addresses within a 25-mile radius of Cincinnati
             </span>
           </div>
           <div>
@@ -100,7 +100,7 @@ export default function Home() {
             {trustItems.map(([title, copy]) => (
               <article className="trust-item" key={title}>
                 <span className="trust-item__mark" aria-hidden="true">
-                  +
+                  &bull;
                 </span>
                 <h3>{title}</h3>
                 <p>{copy}</p>
@@ -223,7 +223,7 @@ export default function Home() {
       <section className="section section--white">
         <div className="container area-callout">
           <div>
-            <p className="eyebrow">50-mile Cincinnati service radius</p>
+            <p className="eyebrow">25-mile Cincinnati service radius</p>
             <h2>See whether your address is likely in range</h2>
             <p>
               The ZIP check is an initial screening. The complete residential
@@ -264,7 +264,7 @@ export default function Home() {
             <p className="eyebrow eyebrow--light">Ready to request service?</p>
             <h2>Tell us what the appliance is doing.</h2>
             <p>
-              For supported residential appliances within 50 miles of
+              For supported residential appliances within 25 miles of
               Cincinnati.
             </p>
           </div>

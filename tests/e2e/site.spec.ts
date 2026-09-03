@@ -34,8 +34,25 @@ test("desktop navigation, brand, homepage content, and pricing are accurate", as
   const serviceCards = await page.locator(".service-card").allTextContents();
   expect(serviceCards.join(" ")).not.toMatch(/refrigerator|HVAC/i);
   await expect(
-    page.locator('a[href="tel:[BUSINESS_PHONE]"]').first(),
+    page.locator('a[href="tel:513-804-7766"]').first(),
   ).toBeAttached();
+  await expect(
+    page.locator('a[href="mailto:ssena@niceuyservices.com"]').first(),
+  ).toBeAttached();
+  await expect(page.locator(".trust-item__mark")).toHaveText([
+    "\u2022",
+    "\u2022",
+    "\u2022",
+    "\u2022",
+  ]);
+  const brandBounds = await page.locator(".brand-link").boundingBox();
+  const logoBounds = await page.locator(".brand-link img").boundingBox();
+  expect(brandBounds).not.toBeNull();
+  expect(logoBounds).not.toBeNull();
+  expect(logoBounds!.y).toBeGreaterThanOrEqual(brandBounds!.y);
+  expect(logoBounds!.y + logoBounds!.height).toBeLessThanOrEqual(
+    brandBounds!.y + brandBounds!.height,
+  );
   await page
     .getByRole("navigation", { name: "Primary navigation" })
     .getByRole("link", { name: "Pricing", exact: true })

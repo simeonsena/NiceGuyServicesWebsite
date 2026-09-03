@@ -3,13 +3,13 @@ export const businessConfig = {
   legalName: "Nice Guy Services LLC",
   domain: "niceguyservices.com",
   canonicalUrl: "https://niceguyservices.com",
-  phone: "[BUSINESS_PHONE]",
-  email: "[BUSINESS_EMAIL]",
+  phone: "513-804-7766",
+  email: "ssena@niceuyservices.com",
   addressLabel: "[BUSINESS_ADDRESS_OR_SERVICE_AREA_LABEL]",
   hours: "[BUSINESS_HOURS]",
   serviceArea: {
     centerName: "Cincinnati city center",
-    radiusMiles: 50,
+    radiusMiles: 25,
   },
   pricing: {
     diagnosticFee: 100,
@@ -193,7 +193,7 @@ export const faqItems = [
   ],
   [
     "What areas do you serve?",
-    "Residential addresses that appear to be within 50 miles of Cincinnati city center. Borderline addresses can be reviewed manually.",
+    "Residential addresses that appear to be within 25 miles of Cincinnati city center. Borderline addresses can be reviewed manually.",
   ],
   [
     "What is the diagnostic fee?",

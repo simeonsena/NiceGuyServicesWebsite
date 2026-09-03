@@ -5,7 +5,7 @@ import { PageHero } from "@/components/page-hero";
 export const metadata: Metadata = {
   title: "Schedule Appliance Service",
   description:
-    "Request residential washer, dryer, dishwasher, oven, range, or microwave repair within 50 miles of Cincinnati.",
+    "Request residential washer, dryer, dishwasher, oven, range, or microwave repair within 25 miles of Cincinnati.",
   alternates: { canonical: "/schedule-service" },
 };
 

@@ -1,6 +1,6 @@
 # Nice Guy Appliance Services Website
 
-Public website and appointment-request experience for Nice Guy Appliance Services, serving qualifying residential addresses within 50 miles of Cincinnati city center.
+Public website and appointment-request experience for Nice Guy Appliance Services, serving qualifying residential addresses within 25 miles of Cincinnati city center.
 
 ## Current capabilities
 
@@ -42,8 +42,6 @@ npm run build
 
 Before treating the site as production-ready, replace these values in `src/config/business.ts`:
 
-- `[BUSINESS_PHONE]`
-- `[BUSINESS_EMAIL]`
 - `[BUSINESS_ADDRESS_OR_SERVICE_AREA_LABEL]`
 - `[BUSINESS_HOURS]`
 

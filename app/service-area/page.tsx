@@ -5,7 +5,7 @@ import { ServiceAreaChecker } from "@/components/service-area-checker";
 export const metadata: Metadata = {
   title: "Appliance Repair Service Area",
   description:
-    "Check whether a residential address appears to be within the 50-mile Nice Guy Appliance Services radius from Cincinnati city center.",
+    "Check whether a residential address appears to be within the 25-mile Nice Guy Appliance Services radius from Cincinnati city center.",
   alternates: { canonical: "/service-area" },
 };
 
@@ -13,9 +13,9 @@ export default function ServiceAreaPage() {
   return (
     <main id="main-content">
       <PageHero
-        eyebrow="50-mile Cincinnati radius"
+        eyebrow="25-mile Cincinnati radius"
         title="Check Your Service Area"
-        intro="Service is offered to qualifying residential addresses within 50 miles of Cincinnati city center. A ZIP result is an initial screen, not a promise of service."
+        intro="Service is offered to qualifying residential addresses within 25 miles of Cincinnati city center. A ZIP result is an initial screen, not a promise of service."
       />
       <section className="section section--mist">
         <div className="container">
@@ -27,7 +27,7 @@ export default function ServiceAreaPage() {
           <h2>How the radius check works</h2>
           <p>
             The checker uses the ZIP code as an initial indicator. ZIP areas are
-            irregular and can cross the 50-mile boundary, so the complete street
+            irregular and can cross the 25-mile boundary, so the complete street
             address is reviewed before an appointment is accepted.
           </p>
           <h2>Borderline or uncertain addresses</h2>
@@ -39,7 +39,7 @@ export default function ServiceAreaPage() {
           <h2>What the service area includes</h2>
           <p>
             Residential service locations only. This page does not create
-            city-specific guarantees or expand the stated 50-mile radius.
+            city-specific guarantees or expand the stated 25-mile radius.
           </p>
         </div>
       </section>

@@ -25,7 +25,10 @@ test("homepage clearly presents the business, qualification rules, and canonical
   assert.equal(response.status, 200);
   assert.match(html, /Nice Guy Appliance Services/);
   assert.match(html, /Honest Appliance Repair Without Inflated Parts Markup/i);
-  assert.match(html, /50 miles of Cincinnati/i);
+  assert.match(html, /25 miles of Cincinnati/i);
+  assert.doesNotMatch(html, /50[- ]mile|50 miles/i);
+  assert.match(html, /513-804-7766/);
+  assert.match(html, /ssena@niceuyservices\.com/);
   for (const appliance of [
     "washers",
     "dryers",

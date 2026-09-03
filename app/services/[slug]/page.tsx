@@ -23,7 +23,7 @@ export async function generateMetadata({
   if (!service) return {};
   return {
     title: `${service.name} in Cincinnati`,
-    description: `${service.summary} Available for qualifying residential addresses within 50 miles of Cincinnati city center.`,
+    description: `${service.summary} Available for qualifying residential addresses within 25 miles of Cincinnati city center.`,
     alternates: { canonical: `/services/${service.slug}` },
   };
 }
@@ -39,7 +39,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
     name: service.name,
     description: service.summary,
     provider: { "@id": `${businessConfig.canonicalUrl}/#business` },
-    areaServed: "Within 50 miles of Cincinnati city center",
+    areaServed: "Within 25 miles of Cincinnati city center",
     url: `${businessConfig.canonicalUrl}/services/${service.slug}`,
   };
 

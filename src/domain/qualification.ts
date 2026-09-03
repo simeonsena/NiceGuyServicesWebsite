@@ -39,7 +39,7 @@ export function assessServiceArea(input: string): ServiceAreaAssessment {
     return {
       status: "likely-inside",
       message:
-        "This ZIP code appears to be within the normal 50-mile service area. The complete address will be confirmed before scheduling.",
+        "This ZIP code appears to be within the normal 25-mile service area. The complete address will be confirmed before scheduling.",
       zip,
     };
   }

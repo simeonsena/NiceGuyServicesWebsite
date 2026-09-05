@@ -577,8 +577,8 @@ export function BookingForm() {
               aria-invalid={invalid("diagnosticPolicyAccepted")}
             />
             <span>
-              I accept the $100 diagnostic-fee policy and understand it is
-              waived only when the approved repair is completed. *
+              I accept the $99 diagnostic-fee policy and understand it is waived
+              only when the approved repair is completed. *
             </span>
           </label>
           <label className="check-option">

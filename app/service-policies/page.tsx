@@ -21,7 +21,7 @@ export default function PoliciesPage() {
         <div className="container prose">
           <h2>Diagnostic fee and repair approval</h2>
           <p>
-            The standard diagnostic fee is $100 when the recommended repair is
+            The standard diagnostic fee is $99 when the recommended repair is
             declined. It is waived when the customer approves and completes the
             recommended repair. Final pricing is confirmed before repair work
             begins.

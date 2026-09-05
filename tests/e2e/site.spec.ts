@@ -37,7 +37,7 @@ test("desktop navigation, brand, homepage content, and pricing are accurate", as
     page.locator('a[href="tel:513-804-7766"]').first(),
   ).toBeAttached();
   await expect(
-    page.locator('a[href="mailto:ssena@niceuyservices.com"]').first(),
+    page.locator('a[href="mailto:ssena@niceguyservices.com"]').first(),
   ).toBeAttached();
   await expect(page.locator(".trust-item__mark")).toHaveText([
     "\u2022",
@@ -58,7 +58,7 @@ test("desktop navigation, brand, homepage content, and pricing are accurate", as
     .getByRole("link", { name: "Pricing", exact: true })
     .click();
   await expect(page).toHaveURL(/\/pricing$/);
-  await expect(page.getByText("$100", { exact: true })).toBeVisible();
+  await expect(page.getByText("$99", { exact: true })).toBeVisible();
   await expect(page.getByText("$250", { exact: true })).toBeVisible();
   await expect(page.getByText("+$200", { exact: true })).toBeVisible();
   await expect(

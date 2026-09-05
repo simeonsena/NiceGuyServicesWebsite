@@ -4,7 +4,7 @@ export const businessConfig = {
   domain: "niceguyservices.com",
   canonicalUrl: "https://niceguyservices.com",
   phone: "513-804-7766",
-  email: "ssena@niceuyservices.com",
+  email: "ssena@niceguyservices.com",
   addressLabel: "[BUSINESS_ADDRESS_OR_SERVICE_AREA_LABEL]",
   hours: "[BUSINESS_HOURS]",
   serviceArea: {
@@ -12,7 +12,7 @@ export const businessConfig = {
     radiusMiles: 25,
   },
   pricing: {
-    diagnosticFee: 100,
+    diagnosticFee: 99,
     standardLabor: 250,
     additionalTechnicianCharge: 200,
     diagnosticFeeWaivedWithCompletedRepair: true,
@@ -197,7 +197,7 @@ export const faqItems = [
   ],
   [
     "What is the diagnostic fee?",
-    "The diagnostic fee is $100 when you decline the recommended repair. It is waived when you approve and complete the recommended repair.",
+    "The diagnostic fee is $99 when you decline the recommended repair. It is waived when you approve and complete the recommended repair.",
   ],
   [
     "How much is standard labor?",

@@ -154,7 +154,7 @@ export default function Home() {
           <div className="price-list">
             <div>
               <h3>Diagnostic fee</h3>
-              <strong>$100</strong>
+              <strong>$99</strong>
               <p>
                 Charged when the recommended repair is declined; waived when the
                 approved repair is completed.

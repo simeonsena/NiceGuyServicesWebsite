@@ -28,7 +28,7 @@ test("homepage clearly presents the business, qualification rules, and canonical
   assert.match(html, /25 miles of Cincinnati/i);
   assert.doesNotMatch(html, /50[- ]mile|50 miles/i);
   assert.match(html, /513-804-7766/);
-  assert.match(html, /ssena@niceuyservices\.com/);
+  assert.match(html, /ssena@niceguyservices\.com/);
   for (const appliance of [
     "washers",
     "dryers",
@@ -48,7 +48,8 @@ test("pricing route renders every exact pricing rule", async () => {
   const response = await render("/pricing");
   const html = await response.text();
   assert.equal(response.status, 200);
-  assert.match(html, /\$100/);
+  assert.match(html, /\$99/);
+  assert.doesNotMatch(html, /\$100/);
   assert.match(html, /\$250/);
   assert.match(html, /\$200/);
   assert.match(html, /actual acquisition cost/i);

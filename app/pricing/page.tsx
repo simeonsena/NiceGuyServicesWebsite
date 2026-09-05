@@ -6,7 +6,7 @@ import { businessConfig } from "@/src/config/business";
 export const metadata: Metadata = {
   title: "Appliance Repair Pricing",
   description:
-    "Clear Cincinnati appliance-repair pricing: $100 diagnostic fee, $250 standard labor, parts at acquisition cost whenever practical, and disclosed access charges.",
+    "Clear Cincinnati appliance-repair pricing: $99 diagnostic fee, $250 standard labor, parts at acquisition cost whenever practical, and disclosed access charges.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -23,7 +23,7 @@ export default function PricingPage() {
           <div className="pricing-grid">
             <article className="pricing-card">
               <h2>Diagnostic fee</h2>
-              <strong>$100</strong>
+              <strong>$99</strong>
               <p>
                 Charged when you decline the recommended repair. The diagnostic
                 fee is waived when you approve and complete the recommended

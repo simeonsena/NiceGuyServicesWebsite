@@ -39,8 +39,10 @@ test("homepage clearly presents the business, qualification rules, and canonical
   ])
     assert.match(html, new RegExp(appliance, "i"));
   assert.match(html, /nice-guy-appliance-services-logo\.png/);
-  assert.match(html, /Schedule Service/);
   assert.match(html, /Call Now/);
+  assert.match(html, /Email Us/);
+  assert.match(html, /By appointment/);
+  assert.doesNotMatch(html, /\[BUSINESS_|Development placeholder/);
   assert.doesNotMatch(html, /codex-preview/);
 });
 
@@ -57,7 +59,7 @@ test("pricing route renders every exact pricing rule", async () => {
   assert.match(html, /Final repair cost depends on the diagnosis/i);
 });
 
-test("service area, booking, and contact routes expose accessible forms", async () => {
+test("service area offers a checker while booking and contact use direct links", async () => {
   for (const [path, heading] of [
     ["/service-area", "Check Your Service Area"],
     ["/schedule-service", "Schedule Appliance Service"],
@@ -67,8 +69,14 @@ test("service area, booking, and contact routes expose accessible forms", async 
     const html = await response.text();
     assert.equal(response.status, 200, path);
     assert.match(html, new RegExp(`<h1[^>]*>[^<]*${heading}`, "i"), path);
-    assert.match(html, /<form\b/i, path);
-    assert.match(html, /<label\b/i, path);
+    if (path === "/service-area") {
+      assert.match(html, /<form\b/i, path);
+      assert.match(html, /<label\b/i, path);
+    } else {
+      assert.doesNotMatch(html, /<form\b/i, path);
+      assert.match(html, /href="tel:513-804-7766"/);
+      assert.match(html, /href="mailto:ssena@niceguyservices\.com"/);
+    }
   }
 });
 
@@ -148,6 +156,17 @@ test("redirects www, insecure canonical requests, and documented legacy paths", 
   assert.equal(legacy.status, 308);
   assert.equal(
     legacy.headers.get("location"),
+    "https://niceguyservices.com/schedule-service",
+  );
+
+  const retired = await worker.fetch(
+    new Request("https://niceguyservices.com/booking-confirmation"),
+    env,
+    ctx,
+  );
+  assert.equal(retired.status, 308);
+  assert.equal(
+    retired.headers.get("location"),
     "https://niceguyservices.com/schedule-service",
   );
 });

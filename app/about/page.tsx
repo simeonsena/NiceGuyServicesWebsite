@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
+import { businessConfig } from "@/src/config/business";
 
 export const metadata: Metadata = {
   title: "About",
@@ -49,8 +50,17 @@ export default function AboutPage() {
           <aside className="content-layout__aside">
             <h2>Business details</h2>
             <p>
-              Phone, email, business hours, and the public service-area label
-              are centralized placeholders awaiting approved information.
+              Service is {businessConfig.hours.toLowerCase()} for qualifying
+              residential addresses within 25 miles of Cincinnati city center.
+            </p>
+            <p>
+              Call{" "}
+              <a href={`tel:${businessConfig.phone}`}>{businessConfig.phone}</a>{" "}
+              or email{" "}
+              <a href={`mailto:${businessConfig.email}`}>
+                {businessConfig.email}
+              </a>
+              .
             </p>
           </aside>
         </div>

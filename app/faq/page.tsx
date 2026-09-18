@@ -5,7 +5,7 @@ import { faqItems } from "@/src/config/business";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Answers about supported appliances, Cincinnati service area, diagnostic and labor pricing, parts, warranties, safety, and booking.",
+    "Answers about supported appliances, Cincinnati service area, pricing, parts, warranties, safety, and arranging service.",
   alternates: { canonical: "/faq" },
 };
 

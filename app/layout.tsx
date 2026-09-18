@@ -59,6 +59,8 @@ const localBusinessSchema = {
   "@id": `${businessConfig.canonicalUrl}/#business`,
   name: businessConfig.name,
   url: businessConfig.canonicalUrl,
+  telephone: businessConfig.phone,
+  email: businessConfig.email,
   image: `${businessConfig.canonicalUrl}${businessConfig.brand.logo}`,
   areaServed: {
     "@type": "GeoCircle",

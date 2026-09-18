@@ -15,7 +15,7 @@ export default function PoliciesPage() {
       <PageHero
         eyebrow="Read before service"
         title="Service policies"
-        intro="These plain-language policies explain the current pricing and warranty terms. Cancellation details marked as placeholders require final business approval."
+        intro="Review the current pricing, warranty, parts, and safety terms before arranging service."
       />
       <section className="section section--white">
         <div className="container prose">
@@ -54,15 +54,19 @@ export default function PoliciesPage() {
           </p>
           <h2>Requesting warranty service</h2>
           <p>
-            Contact {businessConfig.phone} or {businessConfig.email} with the
-            original request number, completion date, appliance details, and a
-            description of the concern.
+            Call{" "}
+            <a href={`tel:${businessConfig.phone}`}>{businessConfig.phone}</a>{" "}
+            or email{" "}
+            <a href={`mailto:${businessConfig.email}`}>
+              {businessConfig.email}
+            </a>{" "}
+            with the completion date, appliance details, and a description of
+            the concern.
           </p>
-          <h2>Cancellation policy</h2>
-          <p className="policy-note">
-            [EDITABLE CANCELLATION POLICY PLACEHOLDER: Add the approved notice
-            period, any fee, and exception terms before relying on this policy
-            in production.]
+          <h2>Appointment changes and cancellations</h2>
+          <p>
+            If you need to change or cancel an appointment, please contact us
+            directly by phone or email as soon as you can.
           </p>
           <h2>Safety and access</h2>
           <p>

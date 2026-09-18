@@ -10,7 +10,7 @@
     "build": "vinext build",
     "start": "vinext start",
     "typecheck": "tsc --noEmit",
-    "test:unit": "node --test tests/unit/business-rules.test.mjs tests/unit/qualification.test.mjs tests/unit/validation.test.mjs tests/unit/providers.test.mjs",
+    "test:unit": "node --test tests/unit/business-rules.test.mjs tests/unit/qualification.test.mjs",
     "test:api": "node --test tests/integration/api-routes.test.mjs",
     "test:rendered": "npm run build && node --test tests/integration/site-routes.test.mjs",
     "test:e2e": "playwright test",

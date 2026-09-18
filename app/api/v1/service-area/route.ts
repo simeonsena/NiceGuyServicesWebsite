@@ -28,7 +28,7 @@ export async function POST(request: Request) {
       {
         status: "manual-review",
         message:
-          "The location could not be checked. Submit it for manual review.",
+          "The location could not be checked. Call or email us with the address for review.",
       },
       { status: 400 },
     );

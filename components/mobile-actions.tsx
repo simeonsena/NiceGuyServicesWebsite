@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { businessConfig } from "@/src/config/business";
 import { trackConversion } from "./analytics";
 
@@ -15,16 +14,16 @@ export function MobileActions() {
       >
         Call Now
       </a>
-      <Link
-        href="/schedule-service"
+      <a
+        href={`mailto:${businessConfig.email}`}
         onClick={() =>
-          trackConversion("schedule_service_click", {
+          trackConversion("email_click", {
             context: "mobile_sticky",
           })
         }
       >
-        Schedule Service
-      </Link>
+        Email Us
+      </a>
     </nav>
   );
 }

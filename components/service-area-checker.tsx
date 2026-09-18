@@ -31,7 +31,7 @@ export function ServiceAreaChecker({ compact = false }: { compact?: boolean }) {
       setResult({
         status: "manual-review",
         message:
-          "The automated check is unavailable. Submit your address with a booking request for manual review.",
+          "The automated check is unavailable. Call or email us with the address for review.",
       });
     } finally {
       setPending(false);
@@ -76,14 +76,14 @@ export function ServiceAreaChecker({ compact = false }: { compact?: boolean }) {
         >
           <strong>
             {result.status === "likely-inside"
-              ? "Likely in range"
+              ? "Regional ZIP found"
               : result.status === "outside"
                 ? "Likely outside the normal area"
                 : "Manual review needed"}
           </strong>
           <p>{result.message}</p>
           {result.status !== "likely-inside" && (
-            <Link href="/schedule-service">Request a manual review</Link>
+            <Link href="/schedule-service">Contact us for a manual review</Link>
           )}
         </div>
       )}

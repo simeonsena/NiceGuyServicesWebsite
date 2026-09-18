@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ActionLinks } from "@/components/action-links";
-import { ReviewPlaceholder } from "@/components/review-placeholder";
 import { businessConfig, faqItems, serviceRoutes } from "@/src/config/business";
 
 export const metadata: Metadata = {
@@ -185,7 +184,7 @@ export default function Home() {
           </div>
           <ol className="process-list">
             {[
-              "Schedule service and share the appliance details.",
+              "Call or email with the appliance details to arrange service.",
               "Receive an in-home diagnosis.",
               "Review the recommendation and complete price.",
               "Approve or decline without pressure.",
@@ -218,8 +217,6 @@ export default function Home() {
         </div>
       </section>
 
-      <ReviewPlaceholder />
-
       <section className="section section--white">
         <div className="container area-callout">
           <div>
@@ -241,7 +238,7 @@ export default function Home() {
           <div className="section-heading section-heading--split">
             <div>
               <p className="eyebrow">Common questions</p>
-              <h2>Useful answers before you book</h2>
+              <h2>Useful answers before you call</h2>
             </div>
             <Link className="text-link" href="/faq">
               View all FAQs

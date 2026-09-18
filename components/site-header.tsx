@@ -64,15 +64,15 @@ export function SiteHeader() {
           >
             {businessConfig.phone}
           </a>
-          <Link
+          <a
             className="button button--header"
-            href="/schedule-service"
+            href={`mailto:${businessConfig.email}`}
             onClick={() =>
-              trackConversion("schedule_service_click", { context: "header" })
+              trackConversion("email_click", { context: "header" })
             }
           >
-            Schedule Service
-          </Link>
+            Email Us
+          </a>
         </div>
         <button
           className="menu-button"

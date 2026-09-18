@@ -2,11 +2,7 @@
 
 export type ConversionEvent =
   | "phone_click"
-  | "schedule_service_click"
-  | "booking_started"
-  | "booking_submitted"
-  | "booking_failed"
-  | "contact_submitted"
+  | "email_click"
   | "service_area_checked"
   | "pricing_viewed"
   | "service_page_conversion";

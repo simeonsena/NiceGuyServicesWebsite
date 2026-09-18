@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { businessConfig } from "@/src/config/business";
 import { trackConversion } from "./analytics";
 
@@ -13,19 +12,19 @@ export function ActionLinks({
 }) {
   return (
     <div className={`action-links${compact ? " action-links--compact" : ""}`}>
-      <Link
-        className="button button--primary"
-        href="/schedule-service"
-        onClick={() => trackConversion("schedule_service_click", { context })}
-      >
-        Schedule Service
-      </Link>
       <a
-        className="button button--ghost"
+        className="button button--primary"
         href={`tel:${businessConfig.phone}`}
         onClick={() => trackConversion("phone_click", { context })}
       >
         Call Now
+      </a>
+      <a
+        className="button button--ghost"
+        href={`mailto:${businessConfig.email}`}
+        onClick={() => trackConversion("email_click", { context })}
+      >
+        Email Us
       </a>
     </div>
   );

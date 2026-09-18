@@ -29,7 +29,7 @@ export function assessServiceArea(input: string): ServiceAreaAssessment {
     return {
       status: "manual-review",
       message:
-        "Add a five-digit ZIP code for an initial check, or submit the address for manual service-area review.",
+        "Add a five-digit ZIP code for an initial check, or call or email us with the address for review.",
       zip,
     };
   }
@@ -39,7 +39,7 @@ export function assessServiceArea(input: string): ServiceAreaAssessment {
     return {
       status: "likely-inside",
       message:
-        "This ZIP code appears to be within the normal 25-mile service area. The complete address will be confirmed before scheduling.",
+        "This ZIP code is in the broader Cincinnati region, but ZIP codes do not establish distance. Call or email with the complete address for confirmation before scheduling.",
       zip,
     };
   }
@@ -47,14 +47,14 @@ export function assessServiceArea(input: string): ServiceAreaAssessment {
     return {
       status: "outside",
       message:
-        "This ZIP code appears to be outside the normal service area. You may still request a manual review.",
+        "This ZIP code appears to be outside the normal service area. Call or email us with the full address for review.",
       zip,
     };
   }
   return {
     status: "manual-review",
     message:
-      "The automated check cannot confirm this location. Submit the full address for manual review.",
+      "The automated check cannot confirm this location. Call or email us with the full address for review.",
     zip,
   };
 }

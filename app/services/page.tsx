@@ -36,7 +36,7 @@ export default function ServicesPage() {
           <p className="exclusion-note">
             <strong>Not a supported category?</strong> Refrigerator, freezer,
             air-conditioning, furnace, HVAC, refrigeration, and
-            commercial-appliance requests cannot be booked.
+            commercial-appliance service is not offered.
           </p>
         </div>
       </section>

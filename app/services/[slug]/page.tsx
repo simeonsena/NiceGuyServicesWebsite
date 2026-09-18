@@ -86,8 +86,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <aside className="content-layout__aside">
             <h2>Request {service.name.toLowerCase()}</h2>
             <p>
-              Share the model number, symptoms, access details, and optional
-              photos. The request remains pending until confirmed directly.
+              Call or email with the model number, symptoms, and access details.
+              An appointment is set after we confirm the details directly.
             </p>
             <ActionLinks compact context={`service_${service.slug}`} />
           </aside>

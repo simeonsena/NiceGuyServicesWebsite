@@ -52,6 +52,8 @@ const worker = {
     const legacyRedirects: Record<string, string> = {
       "/book": "/schedule-service",
       "/warranty": "/service-policies",
+      "/booking-confirmation": "/schedule-service",
+      "/booking-error": "/schedule-service",
     };
     if (legacyRedirects[url.pathname]) {
       url.pathname = legacyRedirects[url.pathname];

@@ -5,8 +5,9 @@ export const businessConfig = {
   canonicalUrl: "https://niceguyservices.com",
   phone: "513-804-7766",
   email: "ssena@niceguyservices.com",
-  addressLabel: "[BUSINESS_ADDRESS_OR_SERVICE_AREA_LABEL]",
-  hours: "[BUSINESS_HOURS]",
+  addressLabel:
+    "Serving residential addresses within 25 miles of Cincinnati city center",
+  hours: "By appointment",
   serviceArea: {
     centerName: "Cincinnati city center",
     radiusMiles: 25,
@@ -44,15 +45,14 @@ export const businessConfig = {
     "Commercial appliance",
   ],
   callsToAction: {
-    primary: "Schedule Service",
-    secondary: "Call Now",
+    primary: "Call Now",
+    secondary: "Email Us",
   },
   brand: {
     logo: "/nice-guy-appliance-services-logo.png",
     socialImage: "/og.png",
   },
   integrations: {
-    bookingProvider: "local-development",
     notificationProvider: "disabled",
     paymentProvider: "disabled",
     analyticsId: "",
@@ -217,7 +217,7 @@ export const faqItems = [
   ],
   [
     "Can I provide a model number and photos?",
-    "Yes. The booking form accepts a model number plus optional appliance and model-label photos to help prepare for the visit.",
+    "Yes. Share the model number when you call, or email it along with any helpful appliance photos. Do not send sensitive personal or payment information.",
   ],
   [
     "What if a part is discontinued?",
@@ -229,7 +229,7 @@ export const faqItems = [
   ],
   [
     "What brands do you service?",
-    "Brand coverage is confirmed case by case. Add the brand and model number to your booking request so support can be reviewed without guessing.",
+    "Brand coverage is confirmed case by case. Call or email with the brand and model number so support can be reviewed without guessing.",
   ],
   [
     "Do you repair commercial appliances?",
@@ -237,10 +237,10 @@ export const faqItems = [
   ],
   [
     "What should I do if I smell gas or see sparks?",
-    "Stop using the appliance. Keep clear of immediate danger and contact the appropriate emergency service or utility when needed. The booking form will show a prominent safety warning.",
+    "Stop using the appliance. Keep clear of immediate danger and contact the appropriate emergency service or utility when needed. Do not wait for a service appointment if there is immediate danger.",
   ],
   [
-    "What happens after I submit a booking request?",
-    "You receive a request number and a summary. The appointment remains pending until Nice Guy Appliance Services confirms the date and window directly.",
+    "How do I arrange an appointment?",
+    "Call 513-804-7766 or email ssena@niceguyservices.com with the appliance, symptoms, and service location. An appointment is set only after Nice Guy Appliance Services confirms the details directly.",
   ],
 ] as const;

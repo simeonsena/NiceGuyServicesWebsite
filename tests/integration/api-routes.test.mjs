@@ -23,82 +23,21 @@ test("service-area API handles likely, outside, and manual-review results", asyn
   }
 });
 
-function validBookingForm() {
-  const form = new FormData();
-  const values = {
-    name: "Test Customer",
-    phone: "513-555-0100",
-    email: "test@example.com",
-    address: "100 Main Street",
-    city: "Cincinnati",
-    state: "OH",
-    zip: "45202",
-    appliance: "Washer",
-    brand: "Example",
-    problemDescription: "The drum stops in the middle of a cycle.",
-    preferredDate: "2026-09-15",
-    preferredWindow: "Morning",
-    diagnosticPolicyAccepted: "on",
-    servicePolicyAccepted: "on",
-  };
-  for (const [key, value] of Object.entries(values)) form.set(key, value);
-  return form;
-}
-
-test("booking API rejects invalid input and creates a pending idempotent request", async () => {
-  const invalid = await createBooking(
-    new Request("http://localhost/api/v1/bookings", {
-      method: "POST",
-      body: new FormData(),
-    }),
-  );
-  assert.equal(invalid.status, 400);
-
-  const first = await createBooking(
-    new Request("http://localhost/api/v1/bookings", {
-      method: "POST",
-      headers: { "idempotency-key": "api-test-key" },
-      body: validBookingForm(),
-    }),
-  );
-  assert.equal(first.status, 202);
-  const firstData = await first.json();
-  assert.equal(firstData.status, "pending");
-  assert.doesNotMatch(firstData.message, /^confirmed/i);
-
-  const second = await createBooking(
-    new Request("http://localhost/api/v1/bookings", {
-      method: "POST",
-      headers: { "idempotency-key": "api-test-key" },
-      body: validBookingForm(),
-    }),
-  );
-  assert.equal((await second.json()).reference, firstData.reference);
-});
-
-test("contact API performs server validation and returns a receipt", async () => {
-  const invalid = await createContact(
-    new Request("http://localhost/api/v1/contact", {
-      method: "POST",
-      body: new FormData(),
-    }),
-  );
-  assert.equal(invalid.status, 400);
-
-  const form = new FormData();
-  for (const [key, value] of Object.entries({
-    name: "Test Customer",
-    contact: "test@example.com",
-    subject: "Dishwasher question",
-    message: "I would like help deciding whether this is supported.",
-  }))
-    form.set(key, value);
-  const response = await createContact(
-    new Request("http://localhost/api/v1/contact", {
-      method: "POST",
-      body: form,
-    }),
-  );
-  assert.equal(response.status, 201);
-  assert.equal((await response.json()).received, true);
+test("retired submission APIs reject old form posts without issuing receipts", async () => {
+  for (const [route, handler] of [
+    ["bookings", createBooking],
+    ["contact", createContact],
+  ]) {
+    const response = await handler(
+      new Request(`http://localhost/api/v1/${route}`, {
+        method: "POST",
+        body: new FormData(),
+      }),
+    );
+    assert.equal(response.status, 410);
+    const data = await response.json();
+    assert.match(data.message, /513-804-7766/);
+    assert.match(data.message, /ssena@niceguyservices\.com/);
+    assert.equal(data.reference, undefined);
+  }
 });

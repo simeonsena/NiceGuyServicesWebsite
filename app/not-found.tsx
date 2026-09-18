@@ -13,7 +13,7 @@ export default function NotFound() {
               Return home
             </Link>
             <Link className="button button--ghost" href="/schedule-service">
-              Schedule Service
+              Arrange service
             </Link>
           </div>
         </div>

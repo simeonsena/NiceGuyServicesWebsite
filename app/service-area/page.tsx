@@ -32,9 +32,9 @@ export default function ServiceAreaPage() {
           </p>
           <h2>Borderline or uncertain addresses</h2>
           <p>
-            If the result is uncertain, continue to the booking form and request
-            manual review. Do not rely on a ZIP-only result when the address may
-            sit outside the normal territory.
+            If the result is uncertain, call or email us with the complete
+            address for review. Do not rely on a ZIP-only result when the
+            address may sit outside the normal territory.
           </p>
           <h2>What the service area includes</h2>
           <p>

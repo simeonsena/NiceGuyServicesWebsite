@@ -416,6 +416,30 @@
   grid-template-columns: minmax(0, 1fr) 300px;
   gap: 4.5rem;
 }
+.contact-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+}
+.contact-option {
+  min-width: 0;
+  border-top: 3px solid var(--amber);
+  padding-top: 1.5rem;
+}
+.contact-option h2 {
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+.contact-option .button {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.contact-prep {
+  margin-top: 3.5rem;
+}
+.contact-hours {
+  margin-top: 2.5rem;
+  font-weight: 700;
+}
 .content-layout__main {
   min-width: 0;
 }
@@ -631,6 +655,9 @@
   .content-layout,
   .info-grid,
   .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-options {
     grid-template-columns: 1fr;
   }
   .process-list {

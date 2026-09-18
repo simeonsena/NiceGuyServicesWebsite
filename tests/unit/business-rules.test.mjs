@@ -10,6 +10,8 @@ test("centralizes the authoritative business identity and territory", () => {
   assert.equal(businessConfig.email, "ssena@niceguyservices.com");
   assert.equal(businessConfig.serviceArea.centerName, "Cincinnati city center");
   assert.equal(businessConfig.serviceArea.radiusMiles, 25);
+  assert.equal(businessConfig.hours, "By appointment");
+  assert.doesNotMatch(businessConfig.addressLabel, /\[|\]/);
 });
 
 test("keeps pricing rules exact and consistent", () => {

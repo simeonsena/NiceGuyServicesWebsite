@@ -93,7 +93,7 @@ test("mobile menu opens, receives focus, closes with Escape, and keeps actions v
   await expect(
     page
       .getByRole("navigation", { name: "Quick actions" })
-      .getByRole("link", { name: "Schedule Service" }),
+      .getByRole("link", { name: "Email Us" }),
   ).toBeVisible();
 });
 
@@ -104,7 +104,7 @@ test("service-area checker handles likely, outside, and manual review", async ({
   const input = page.getByLabel("Service address or ZIP code");
   await input.fill("45202");
   await page.getByRole("button", { name: "Check area" }).click();
-  await expect(page.getByText("Likely in range")).toBeVisible();
+  await expect(page.getByText("Regional ZIP found")).toBeVisible();
   await input.fill("43004");
   await page.getByRole("button", { name: "Check area" }).click();
   await expect(page.getByText("Likely outside the normal area")).toBeVisible();
@@ -113,82 +113,25 @@ test("service-area checker handles likely, outside, and manual review", async ({
   await expect(page.getByText("Manual review needed")).toBeVisible();
 });
 
-test("booking validates, triages safety, enforces uploads, and produces a pending receipt", async ({
+test("schedule and contact pages offer working contact links without false forms", async ({
   page,
+  request,
 }) => {
-  await gotoReady(page, "/schedule-service");
-  await page
-    .getByRole("button", { name: "Submit appointment request" })
-    .click();
-  await expect(page.getByRole("alert").first()).toContainText(
-    /Review the highlighted/i,
-  );
-  await page.getByLabel("Customer name *").fill("Test Customer");
-  await page.getByLabel("Phone number *").fill("513-555-0100");
-  await page.getByLabel("Email address *").fill("test@example.com");
-  await page.getByLabel("Service address *").fill("100 Main Street");
-  await page.getByLabel("City *").fill("Cincinnati");
-  await page.getByLabel("ZIP code *").fill("45202");
-  await page.getByLabel("Appliance category *").selectOption("Washer");
-  await expect(
-    page
-      .getByLabel("Appliance category *")
-      .locator('option[value="Refrigerator"]'),
-  ).toHaveCount(0);
-  await page.getByLabel("Brand *").fill("Example brand");
-  await page
-    .getByLabel("Describe the problem *")
-    .fill("The washer drum stops in the middle of every cycle.");
-  await page.getByLabel("Preferred date *").fill("2026-09-15");
-  await page.getByLabel("Preferred time window *").selectOption("Morning");
-  await page.getByLabel("Gas odor").check();
-  await expect(
-    page.getByRole("alert").filter({ hasText: "Stop using the appliance" }),
-  ).toBeVisible();
-  await page.getByLabel("Gas odor").uncheck();
-  await page.getByLabel(/customer-supplied part/i).check();
-  await page.getByLabel(/second technician may be required/i).check();
-  await page.getByLabel("Appliance or problem photo").setInputFiles({
-    name: "unsafe.pdf",
-    mimeType: "application/pdf",
-    buffer: Buffer.from("not an image"),
-  });
-  await page.getByLabel(/diagnostic-fee policy/i).check();
-  await page.getByLabel(/cancellation and service policies/i).check();
-  await page
-    .getByRole("button", { name: "Submit appointment request" })
-    .click();
-  await expect(page.getByRole("alert")).toContainText(
-    /Review the selected image/i,
-  );
-  await page.getByLabel("Appliance or problem photo").setInputFiles([]);
-  await page
-    .getByRole("button", { name: "Submit appointment request" })
-    .click();
-  await expect(page).toHaveURL(/\/booking-confirmation/);
-  await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    /pending confirmation/i,
-  );
-  await expect(page.getByText("Request number", { exact: true })).toBeVisible();
-  await expect(page.getByText(/not confirmed/i).first()).toBeVisible();
-});
-
-test("contact form exposes server errors and succeeds without losing clarity", async ({
-  page,
-}) => {
-  await gotoReady(page, "/contact");
-  await page.getByRole("button", { name: "Send message" }).click();
-  await expect(page.getByRole("alert")).toContainText(
-    /Review the highlighted/i,
-  );
-  await page.getByLabel("Name *").fill("Test Customer");
-  await page.getByLabel("Phone or email *").fill("test@example.com");
-  await page.getByLabel("Subject *").fill("Dishwasher question");
-  await page
-    .getByLabel("Message *")
-    .fill("I would like to ask whether this dishwasher issue is supported.");
-  await page.getByRole("button", { name: "Send message" }).click();
-  await expect(page.getByRole("status")).toContainText(/received for review/i);
+  for (const path of ["/schedule-service", "/contact"]) {
+    await gotoReady(page, path);
+    await expect(page.locator("form")).toHaveCount(0);
+    await expect(
+      page.getByRole("link", { name: "513-804-7766" }).first(),
+    ).toHaveAttribute("href", "tel:513-804-7766");
+    await expect(
+      page.getByRole("link", { name: "ssena@niceguyservices.com" }).first(),
+    ).toHaveAttribute("href", "mailto:ssena@niceguyservices.com");
+    await expect(page.getByText("By appointment").first()).toBeVisible();
+  }
+  const bookingResponse = await request.post("/api/v1/bookings", { data: {} });
+  expect(bookingResponse.status()).toBe(410);
+  const contactResponse = await request.post("/api/v1/contact", { data: {} });
+  expect(contactResponse.status()).toBe(410);
 });
 
 test("accessibility scans pass on critical pages", async ({ page }) => {

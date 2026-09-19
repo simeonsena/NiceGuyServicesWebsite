@@ -42,8 +42,8 @@ export const metadata: Metadata = {
     images: [`${businessConfig.canonicalUrl}/og.png`],
   },
   icons: {
-    icon: [{ url: "/icon.png", type: "image/png" }],
-    apple: [{ url: "/apple-icon.png", type: "image/png" }],
+    icon: [{ url: "/icon-purple.png", type: "image/png" }],
+    apple: [{ url: "/icon-purple.png", type: "image/png" }],
   },
 };
 

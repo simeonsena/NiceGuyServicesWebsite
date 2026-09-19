@@ -54,9 +54,9 @@ export default function Home() {
           </p>
           <ActionLinks context="home_hero" />
           <ul className="hero-facts" aria-label="Service highlights">
-            <li>Local and independently operated</li>
-            <li>Pricing approved before repair</li>
             <li>Direct human communication</li>
+            <li>Pricing approved before repair</li>
+            <li>Local and independently operated</li>
           </ul>
         </div>
       </section>

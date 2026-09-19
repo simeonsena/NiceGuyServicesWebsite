@@ -45,7 +45,7 @@ export default function Home() {
         />
         <div className="container home-hero__content">
           <p className="eyebrow eyebrow--light">
-            Independent appliance service near Cincinnati
+            Fast fix, fair price
           </p>
           <h1>Honest Appliance Repair Without Inflated Parts Markup</h1>
           <p className="home-hero__lead">

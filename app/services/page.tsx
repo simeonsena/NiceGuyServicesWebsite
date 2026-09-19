@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/site-link";
 import { PageHero } from "@/components/page-hero";
 import { serviceRoutes } from "@/src/config/business";
 

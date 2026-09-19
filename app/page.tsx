@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/site-link";
 import { ActionLinks } from "@/components/action-links";
 import { businessConfig, faqItems, serviceRoutes } from "@/src/config/business";
 

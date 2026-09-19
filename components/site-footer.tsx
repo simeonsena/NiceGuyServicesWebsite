@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/site-link";
 import Image from "next/image";
 import { businessConfig, serviceRoutes } from "@/src/config/business";
 

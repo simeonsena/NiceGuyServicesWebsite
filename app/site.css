@@ -131,9 +131,11 @@
 }
 .home-hero__tagline {
   margin: 0 0 1.2rem;
-  color: var(--amber);
-  font-size: 1.35rem;
-  font-weight: 700;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 760;
+  line-height: 1.12;
 }
 .home-hero__lead {
   max-width: 700px;

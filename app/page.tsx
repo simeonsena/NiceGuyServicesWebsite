@@ -45,9 +45,10 @@ export default function Home() {
         />
         <div className="container home-hero__content">
           <p className="eyebrow eyebrow--light">
-            Fast fix, fair price
+            Independent appliance service near Cincinnati
           </p>
           <h1>Honest Appliance Repair Without Inflated Parts Markup</h1>
+          <p className="home-hero__tagline">Fast fix, fair price</p>
           <p className="home-hero__lead">
             In-home repair for washers, dryers, dishwashers, ovens, ranges, and
             microwaves within 25 miles of Cincinnati city center.

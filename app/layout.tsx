@@ -41,10 +41,6 @@ export const metadata: Metadata = {
       "Honest residential appliance repair within 25 miles of Cincinnati.",
     images: [`${businessConfig.canonicalUrl}/og.png`],
   },
-  icons: {
-    icon: [{ url: "/icon-purple.png", type: "image/png" }],
-    apple: [{ url: "/icon-purple.png", type: "image/png" }],
-  },
 };
 
 export const viewport: Viewport = {
@@ -87,6 +83,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/icon-purple.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/icon-purple.png" />
+      </head>
       <body>
         <a className="skip-link" href="#main-content">
           Skip to main content

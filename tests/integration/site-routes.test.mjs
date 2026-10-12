@@ -74,7 +74,7 @@ test("service area offers a checker while booking and contact use direct links",
       assert.match(html, /<label\b/i, path);
     } else {
       if(path === "/contact") assert.doesNotMatch(html, /<form\b/i, path);
-      else assert.match(html, /Request appointment/);
+      else assert.match(html, /Request an appointment/i);
       assert.match(html, /href="tel:513-804-7766"/);
       assert.match(html, /href="mailto:ssena@niceguyservices\.com"/);
     }

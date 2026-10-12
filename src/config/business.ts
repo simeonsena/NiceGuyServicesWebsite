@@ -14,13 +14,51 @@ export const businessConfig = {
   },
   pricing: {
     diagnosticFee: 99,
-    standardLabor: 250,
-    additionalTechnicianCharge: 200,
-    diagnosticFeeWaivedWithCompletedRepair: true,
+    standardLabor: 99,
+    version: "2026-10-11",
+    tiers: [
+      {
+        id: "quick",
+        name: "Quick Fix",
+        labor: 49,
+        examples: [
+          "Simple dishwasher drain pump replacement",
+          "Minor component replacement with minimal disassembly",
+        ],
+      },
+      {
+        id: "standard",
+        name: "Standard Repair",
+        labor: 99,
+        examples: [
+          "Standard dryer heating element replacement",
+          "Dryer belt or idler pulley replacement",
+          "Common top-load washer repairs",
+        ],
+      },
+      {
+        id: "major",
+        name: "Major Repair",
+        labor: 149,
+        examples: [
+          "Complex front-load washer repairs",
+          "Extensive disassembly or involved mechanical repairs",
+        ],
+      },
+    ],
+    additionalTechnicianCharge: 100,
+    diagnosticFeeWaivedWithCompletedRepair: false,
     partsPolicy:
       "Parts are charged at actual acquisition cost whenever practical, without an inflated retail markup.",
     disclaimer:
       "Final repair cost depends on the diagnosis, required parts, appliance configuration, accessibility, and whether additional labor is required. Pricing is confirmed before repair work begins.",
+  },
+  scheduling: {
+    timeZone: "America/New_York",
+    days: [0, 1, 2, 3, 4, 5, 6],
+    startHours: [8, 10, 12, 14, 16],
+    windowHours: 2,
+    manualApprovalRequired: true,
   },
   warranty: {
     workmanshipDays: 30,
@@ -197,11 +235,11 @@ export const faqItems = [
   ],
   [
     "What is the diagnostic fee?",
-    "The diagnostic fee is $99 when you decline the recommended repair. It is waived when you approve and complete the recommended repair.",
+    "A $99 diagnostic fee applies to the visit and is not waived or credited toward labor. If you decline the repair, only the diagnostic fee is owed unless another charge was approved in advance.",
   ],
   [
     "How much is standard labor?",
-    "Standard labor is a flat $250 per completed repair, plus parts. A qualifying two-technician repair may add $200 after advance disclosure.",
+    "Labor is $49 for Quick Fix, $99 for Standard Repair, or $149 for Major Repair, in addition to the $99 diagnostic fee, parts, and applicable tax. Additional labor of $100 requires your approval before work begins.",
   ],
   [
     "How are parts priced?",

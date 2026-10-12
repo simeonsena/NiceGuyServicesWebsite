@@ -1,12 +1,16 @@
+import { LaborPricing } from "@/components/labor-pricing";
 import type { Metadata } from "next";
 import { ActionLinks } from "@/components/action-links";
 import { PageHero } from "@/components/page-hero";
 import { businessConfig } from "@/src/config/business";
+import { serviceRoutes } from "@/src/config/business";
+import { PartsPriceExamples } from "@/components/parts-price-examples";
+import { partsPricing } from "@/src/config/parts-pricing";
 
 export const metadata: Metadata = {
   title: "Appliance Repair Pricing",
   description:
-    "Clear Cincinnati appliance-repair pricing: $99 diagnostic fee, $250 standard labor, parts at acquisition cost whenever practical, and disclosed access charges.",
+    "Transparent appliance repair: $99 diagnostic visit, $49/$99/$149 labor tiers, parts at cost, and additional labor only with approval.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -20,33 +24,7 @@ export default function PricingPage() {
       />
       <section className="section section--mist">
         <div className="container">
-          <div className="pricing-grid">
-            <article className="pricing-card">
-              <h2>Diagnostic fee</h2>
-              <strong>$99</strong>
-              <p>
-                Charged when you decline the recommended repair. The diagnostic
-                fee is waived when you approve and complete the recommended
-                repair.
-              </p>
-            </article>
-            <article className="pricing-card">
-              <h2>Standard labor</h2>
-              <strong>$250</strong>
-              <p>
-                Flat labor per completed repair. Required parts are additional.
-              </p>
-            </article>
-            <article className="pricing-card">
-              <h2>Two-technician work</h2>
-              <strong>+$200</strong>
-              <p>
-                May apply to stacked, built-in, unusually heavy,
-                restricted-access, or complex-removal jobs. It is disclosed
-                before repair.
-              </p>
-            </article>
-          </div>
+          <LaborPricing />
         </div>
       </section>
       <section className="section section--white">
@@ -58,6 +36,16 @@ export default function PricingPage() {
               acquisition price cannot be guaranteed until the appliance and
               required repair are diagnosed.
             </p>
+            <h2>Common replacement parts</h2>
+            {serviceRoutes
+              .filter((service) => service.slug in partsPricing.appliances)
+              .map((service) => (
+                <section key={service.slug}>
+                  <h3>{service.name}</h3>
+                  <PartsPriceExamples slug={service.slug} />
+                </section>
+              ))}
+            <p>{partsPricing.scopeNote}</p>
             <h2>What can affect the final cost?</h2>
             <ul>
               <li>The diagnosed failure and required parts</li>

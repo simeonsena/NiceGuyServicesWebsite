@@ -743,3 +743,17 @@
     font-size: 0.88rem;
   }
 }
+
+/* Pricing and request flow retain the existing purple/white visual language. */
+.pricing-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.pricing-card { color: var(--ink); }
+.pricing-preview__cards { margin-top: 2rem; }
+.pricing-preview__cards .pricing-card p { color: var(--ink-soft); }
+.appointment-request { max-width: 760px; margin: 0 auto 3rem; }
+.appointment-request fieldset { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1rem; }
+.appointment-request label { display:block; margin: 0 0 1rem; }
+.appointment-request input:not([type=checkbox]), .appointment-request select, .appointment-request textarea { display:block; width:100%; padding:.7rem; border:1px solid var(--line); border-radius:4px; background:white; color:var(--ink); }
+.appointment-request textarea { min-height:100px; }
+@media(max-width:1000px) { .pricing-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:600px) { .pricing-grid { grid-template-columns:1fr; } .appointment-request fieldset { padding:1rem; } }
+.pricing-preview .pricing-card h2 { color: var(--violet-900); }

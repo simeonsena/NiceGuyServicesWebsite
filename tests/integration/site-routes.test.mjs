@@ -24,7 +24,7 @@ test("homepage clearly presents the business, qualification rules, and canonical
   const html = await response.text();
   assert.equal(response.status, 200);
   assert.match(html, /Nice Guy Appliance Services/);
-  assert.match(html, /Honest Appliance Repair Without Inflated Parts Markup/i);
+  assert.match(html, /Big Brand Service/i);
   assert.match(html, /25 miles of Cincinnati/i);
   assert.doesNotMatch(html, /50[- ]mile|50 miles/i);
   assert.match(html, /513-804-7766/);
@@ -48,14 +48,14 @@ test("homepage clearly presents the business, qualification rules, and canonical
 
 test("pricing route renders every exact pricing rule", async () => {
   const response = await render("/pricing");
-  const html = await response.text();
+  const html = (await response.text()).replace(/<!--.*?-->/g, '');
   assert.equal(response.status, 200);
   assert.match(html, /\$99/);
-  assert.doesNotMatch(html, /\$100/);
-  assert.match(html, /\$250/);
-  assert.match(html, /\$200/);
+  assert.match(html, /\$100/);
+  assert.match(html, /\$49/);
+  assert.match(html, /\$149/);
   assert.match(html, /actual acquisition cost/i);
-  assert.match(html, /waived.*completed repair/is);
+  assert.match(html, /Not waived or credited/i);
   assert.match(html, /Final repair cost depends on the diagnosis/i);
 });
 
@@ -73,7 +73,8 @@ test("service area offers a checker while booking and contact use direct links",
       assert.match(html, /<form\b/i, path);
       assert.match(html, /<label\b/i, path);
     } else {
-      assert.doesNotMatch(html, /<form\b/i, path);
+      if(path === "/contact") assert.doesNotMatch(html, /<form\b/i, path);
+      else assert.match(html, /Request appointment/);
       assert.match(html, /href="tel:513-804-7766"/);
       assert.match(html, /href="mailto:ssena@niceguyservices\.com"/);
     }

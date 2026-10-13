@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "@/components/site-link";
 import { ActionLinks } from "@/components/action-links";
 import { businessConfig, faqItems, serviceRoutes } from "@/src/config/business";
-import { PartsPriceExamples } from "@/components/parts-price-examples";
 
 export const metadata: Metadata = {
   title: "Honest Appliance Repair in Cincinnati",
@@ -114,6 +113,22 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section pricing-preview">
+        <div className="container">
+          <div>
+            <p className="eyebrow eyebrow--light">Straightforward pricing</p>
+            <h2>Know how the visit is priced</h2>
+            <p>{businessConfig.pricing.partsPolicy}</p>
+            <Link className="text-link text-link--light" href="/pricing">
+              See full pricing and policies
+            </Link>
+          </div>
+          <div className="pricing-preview__cards">
+            <LaborPricing />
+          </div>
+        </div>
+      </section>
+
       <section className="section section--mist" id="services">
         <div className="container">
           <div className="section-heading">
@@ -132,7 +147,6 @@ export default function Home() {
                 </span>
                 <h3>{service.name}</h3>
                 <p>{service.summary}</p>
-                <PartsPriceExamples slug={service.slug} />
                 <Link href={`/services/${service.slug}`}>
                   View {service.name.toLowerCase()}
                 </Link>
@@ -146,21 +160,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section pricing-preview">
-        <div className="container">
-          <div>
-            <p className="eyebrow eyebrow--light">Straightforward pricing</p>
-            <h2>Know how the visit is priced</h2>
-            <p>{businessConfig.pricing.partsPolicy}</p>
-            <Link className="text-link text-link--light" href="/pricing">
-              See full pricing and policies
-            </Link>
-          </div>
-          <div className="pricing-preview__cards">
-            <LaborPricing />
-          </div>
-        </div>
-      </section>
+
 
       <section className="section section--white">
         <div className="container">

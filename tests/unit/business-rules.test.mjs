@@ -16,11 +16,11 @@ test("centralizes the authoritative business identity and territory", () => {
 
 test("keeps pricing rules exact and consistent", () => {
   assert.equal(businessConfig.pricing.diagnosticFee, 99);
-  assert.equal(businessConfig.pricing.standardLabor, 250);
-  assert.equal(businessConfig.pricing.additionalTechnicianCharge, 200);
+  assert.equal(businessConfig.pricing.standardLabor, 99);
+  assert.equal(businessConfig.pricing.additionalTechnicianCharge, 100);
   assert.equal(
     businessConfig.pricing.diagnosticFeeWaivedWithCompletedRepair,
-    true,
+    false,
   );
   assert.match(businessConfig.pricing.partsPolicy, /actual acquisition cost/i);
 });

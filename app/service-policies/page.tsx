@@ -1,3 +1,4 @@
+import { LaborPricing } from "@/components/labor-pricing";
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { businessConfig } from "@/src/config/business";
@@ -19,19 +20,7 @@ export default function PoliciesPage() {
       />
       <section className="section section--white">
         <div className="container prose">
-          <h2>Diagnostic fee and repair approval</h2>
-          <p>
-            The standard diagnostic fee is $99 when the recommended repair is
-            declined. It is waived when the customer approves and completes the
-            recommended repair. Final pricing is confirmed before repair work
-            begins.
-          </p>
-          <h2>Standard and additional labor</h2>
-          <p>
-            Standard labor is $250 per completed repair, plus parts. Work
-            requiring a second technician may include an additional $200 labor
-            charge disclosed before repair.
-          </p>
+          <LaborPricing />
           <h2>30-day workmanship warranty</h2>
           <p>
             Labor performed by {businessConfig.name} is covered for 30 days

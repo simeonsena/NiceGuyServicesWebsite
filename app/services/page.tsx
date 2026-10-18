@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "@/components/site-link";
 import { PageHero } from "@/components/page-hero";
 import { serviceRoutes } from "@/src/config/business";
+import { PartsPriceExamples } from "@/components/parts-price-examples";
 
 export const metadata: Metadata = {
   title: "Residential Appliance Repair Services",
@@ -27,6 +28,7 @@ export default function ServicesPage() {
                 <span className="service-card__number">0{index + 1}</span>
                 <h2>{service.name}</h2>
                 <p>{service.summary}</p>
+                <PartsPriceExamples slug={service.slug} />
                 <Link href={`/services/${service.slug}`}>
                   Explore {service.name.toLowerCase()}
                 </Link>

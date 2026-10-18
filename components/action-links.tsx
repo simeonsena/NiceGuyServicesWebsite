@@ -19,6 +19,11 @@ export function ActionLinks({
       >
         Call Now
       </a>
+      {!context.includes("microwave") && (
+        <a className="button button--ghost" href="/schedule-service">
+          Request appointment
+        </a>
+      )}
       <a
         className="button button--ghost"
         href={`mailto:${businessConfig.email}`}

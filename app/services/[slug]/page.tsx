@@ -3,6 +3,7 @@ import Link from "@/components/site-link";
 import { notFound } from "next/navigation";
 import { ActionLinks } from "@/components/action-links";
 import { PageHero } from "@/components/page-hero";
+import { PartsPriceExamples } from "@/components/parts-price-examples";
 import {
   businessConfig,
   serviceDetails,
@@ -49,6 +50,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         eyebrow="Cincinnati residential appliance service"
         title={service.name}
         intro={service.summary}
+        actionContext={`service_${service.slug}`}
         showActions
       />
       <section className="section section--white">
@@ -77,10 +79,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
             <p>{details.prepare}</p>
             <h2>Making a practical repair decision</h2>
             <p>{details.decisionNote}</p>
+            <PartsPriceExamples slug={service.slug} />
             <p className="policy-note">
               Final pricing is confirmed after diagnosis and before repair work
-              begins. Standard labor is $250 plus parts; other disclosed charges
-              may apply when access or a second technician is required.
+              begins. Diagnostic service, the assigned labor tier, parts, and applicable tax are itemized. Additional labor requires your advance approval.
             </p>
           </article>
           <aside className="content-layout__aside">

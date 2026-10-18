@@ -1,3 +1,4 @@
+import { handleWebsiteBooking } from "./booking";
 /** Cloudflare Worker entry point for the vinext-starter template. */
 import {
   handleImageOptimization,
@@ -7,6 +8,9 @@ import {
 import handler from "vinext/server/app-router-entry";
 
 interface Env {
+  WEBSITE_OPS_URL?: string;
+  WEBSITE_OPS_KEY?: string;
+  WEBSITE_REQUESTS_ENABLED?: string;
   ASSETS: { fetch(request: Request): Promise<Response> };
   IMAGES: {
     input(stream: ReadableStream): {
@@ -60,6 +64,8 @@ const worker = {
       return Response.redirect(url.toString(), 308);
     }
 
+    if (url.pathname === "/api/v1/bookings")
+      return handleWebsiteBooking(request, env);
     if (url.pathname === "/_vinext/image") {
       const allowedWidths = [...DEFAULT_DEVICE_SIZES, ...DEFAULT_IMAGE_SIZES];
       return handleImageOptimization(

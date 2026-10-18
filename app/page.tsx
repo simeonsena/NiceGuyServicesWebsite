@@ -1,3 +1,4 @@
+import { LaborPricing } from "@/components/labor-pricing";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "@/components/site-link";
@@ -47,11 +48,13 @@ export default function Home() {
           <p className="eyebrow eyebrow--light">
             Independent appliance service near Cincinnati
           </p>
-          <h1>Honest Appliance Repair Without Inflated Parts Markup</h1>
-          <p className="home-hero__tagline">Fast fix, fair price</p>
+          <h1>Big Brand Service Shouldn’t Mean Big Brand Prices.</h1>
+          <p className="home-hero__tagline">Fast Fix, Fair Price.</p>
           <p className="home-hero__lead">
-            In-home repair for washers, dryers, dishwashers, ovens, ranges, and
-            microwaves within 25 miles of Cincinnati city center.
+            Professional service, upfront pricing, fair parts costs, and direct
+            access to a real technician. In-home repair for washers, dryers,
+            dishwashers, ovens, ranges, and microwaves within 25 miles of
+            Cincinnati city center.
           </p>
           <ActionLinks context="home_hero" />
           <ul className="hero-facts" aria-label="Service highlights">
@@ -110,6 +113,22 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section pricing-preview">
+        <div className="container">
+          <div>
+            <p className="eyebrow eyebrow--light">Straightforward pricing</p>
+            <h2>Know how the visit is priced</h2>
+            <p>{businessConfig.pricing.partsPolicy}</p>
+            <Link className="text-link text-link--light" href="/pricing">
+              See full pricing and policies
+            </Link>
+          </div>
+          <div className="pricing-preview__cards">
+            <LaborPricing />
+          </div>
+        </div>
+      </section>
+
       <section className="section section--mist" id="services">
         <div className="container">
           <div className="section-heading">
@@ -141,51 +160,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section pricing-preview">
-        <div className="container pricing-preview__layout">
-          <div>
-            <p className="eyebrow eyebrow--light">Straightforward pricing</p>
-            <h2>Know how the visit is priced</h2>
-            <p>{businessConfig.pricing.partsPolicy}</p>
-            <Link className="text-link text-link--light" href="/pricing">
-              See full pricing and policies
-            </Link>
-          </div>
-          <div className="price-list">
-            <div>
-              <h3>Diagnostic fee</h3>
-              <strong>$99</strong>
-              <p>
-                Charged when the recommended repair is declined; waived when the
-                approved repair is completed.
-              </p>
-            </div>
-            <div>
-              <h3>Standard labor</h3>
-              <strong>$250</strong>
-              <p>Flat labor per completed repair, plus parts.</p>
-            </div>
-            <div>
-              <h3>Additional technician</h3>
-              <strong>+$200</strong>
-              <p>
-                Only for qualifying two-technician work and disclosed before
-                repair.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       <section className="section section--white">
         <div className="container">
           <div className="section-heading">
             <p className="eyebrow">How it works</p>
-            <h2>A practical path from problem to decision</h2>
+            <h2>Real People. Honest Prices. Reliable Repairs.</h2><p>Talk directly with your technician. If we are working on another repair, leave a message and we will personally return your call.</p>
           </div>
           <ol className="process-list">
             {[
-              "Call or email with the appliance details to arrange service.",
+              "Request an appointment online, or call with appliance details.",
               "Receive an in-home diagnosis.",
               "Review the recommendation and complete price.",
               "Approve or decline without pressure.",

@@ -21,10 +21,11 @@ export default function PrivacyPage() {
         <div className="container prose">
           <h2>Information collected</h2>
           <p>
-            When you call or email, you may provide your name, contact details,
-            service location, appliance information, symptoms, access notes,
-            scheduling preferences, and photos you choose to email. This website
-            does not offer a booking or contact submission form.
+            When you submit an appointment request, call or email, you may
+            provide your name, contact details, service location, appliance
+            information, symptoms, access notes, scheduling preferences, and
+            photos you choose to email. Online requests are stored in our
+            service-management system for owner review.
           </p>
           <h2>How information is used</h2>
           <p>
@@ -42,8 +43,9 @@ export default function PrivacyPage() {
           <p>
             Phone and email providers carry communications you initiate. Website
             hosting may process technical information needed to serve pages and
-            protect the site. We do not offer online scheduling or payment
-            processing on this website.
+            protect the site. Our service-management and email-delivery
+            providers process appointment requests and status notifications.
+            This website does not collect payments.
           </p>
           <h2>Payments and sensitive data</h2>
           <p>

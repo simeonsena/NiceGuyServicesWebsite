@@ -1,3 +1,4 @@
+import { AppointmentRequest } from "@/components/appointment-request";
 import type { Metadata } from "next";
 import { ContactMethods } from "@/components/contact-methods";
 import { PageHero } from "@/components/page-hero";
@@ -15,10 +16,11 @@ export default function ScheduleServicePage() {
       <PageHero
         eyebrow="By appointment"
         title="Schedule Appliance Service"
-        intro="Call or email us to discuss your appliance and arrange a visit. Your appointment is set only when we confirm the date and time with you directly."
+        intro="Request a two-hour arrival window online, seven days a week, or call us directly. Every request is reviewed by the owner before your appointment is confirmed."
       />
       <section className="section section--white">
         <div className="container">
+          <AppointmentRequest />
           <ContactMethods />
           <div className="prose contact-prep">
             <h2>Helpful details to have ready</h2>

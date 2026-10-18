@@ -11,7 +11,7 @@ test("desktop navigation, brand, homepage content, and pricing are accurate", as
 }) => {
   await gotoReady(page, "/");
   await expect(
-    page.getByRole("heading", { level: 1, name: /Honest Appliance Repair/i }),
+    page.getByRole("heading", { level: 1, name: /Big Brand Service/i }),
   ).toBeVisible();
   await expect(
     page
@@ -59,8 +59,8 @@ test("desktop navigation, brand, homepage content, and pricing are accurate", as
     .click();
   await expect(page).toHaveURL(/\/pricing$/);
   await expect(page.getByText("$99", { exact: true })).toBeVisible();
-  await expect(page.getByText("$250", { exact: true })).toBeVisible();
-  await expect(page.getByText("+$200", { exact: true })).toBeVisible();
+  await expect(page.getByText("$99 labor", { exact: true })).toBeVisible();
+  await expect(page.getByText("Additional labor: +$100.", { exact: true })).toBeVisible();
   await expect(
     page.getByText(/actual acquisition cost/i).first(),
   ).toBeVisible();
@@ -129,7 +129,7 @@ test("schedule and contact pages offer working contact links without false forms
     await expect(page.getByText("By appointment").first()).toBeVisible();
   }
   const bookingResponse = await request.post("/api/v1/bookings", { data: {} });
-  expect(bookingResponse.status()).toBe(410);
+  expect(bookingResponse.status()).toBe(503);
   const contactResponse = await request.post("/api/v1/contact", { data: {} });
   expect(contactResponse.status()).toBe(410);
 });

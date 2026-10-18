@@ -1,3 +1,6 @@
+import "@fontsource/montserrat/latin-400.css";
+import "@fontsource/montserrat/latin-600.css";
+import "@fontsource/montserrat/latin-700.css";
 import type { Metadata, Viewport } from "next";
 import { MobileActions } from "@/components/mobile-actions";
 import { SiteFooter } from "@/components/site-footer";

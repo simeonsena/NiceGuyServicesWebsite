@@ -18,7 +18,7 @@ export function LaborPricing() {
             <h2>{tier.name}</h2>
             <strong>${tier.labor} labor</strong>
             <p>
-              ${pricing.diagnosticFee + tier.labor} diagnostic + labor, plus
+              Diagnostic + labor = ${pricing.diagnosticFee + tier.labor}, plus
               parts and applicable tax.
             </p>
             <ul>
